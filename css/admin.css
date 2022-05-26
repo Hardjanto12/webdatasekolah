@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #23242b;
+  color: white;
+}
+.u-name {
+  font-size: 20px;
+  padding-left: 17px;
+}
+
+.u-name:hover {
+  cursor: default;
+  transition: ease-in-out 0.3s;
+  color: crimson;
+}
+
+.header svg:hover {
+  color: crimson;
+  transition: ease-in-out 0.3s;
+}
