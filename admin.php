@@ -21,20 +21,21 @@
 <body>
     <input type="checkbox" id="checkbox">
     <header class="header">
-        <h2 class="u-name">SIDE <b>BAR</b>
+        <h2 class="u-name">Data<b>Sekolah</b>
             <label for="checkbox">
-                <i id="navbtn" class="bi bi-list" aria-hidden="true"></i>
+                <i id="navbtn" class="bi bi-list" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    title="Expand menu"></i>
             </label>
         </h2>
-        <i class="bi bi-person-fill" aria-hidden="true"></i>
+        <!-- <i class="bi bi-person-fill" aria-hidden="true"></i> -->
     </header>
     <div class="body">
         <!-- sidebar -->
         <nav class="side-bar">
-            <div class="user-p">
+            <!-- <div class="user-p">
                 <img src="img\user-default.png" alt="">
                 <h4 class="mt-2">Full Name</h4>
-            </div>
+            </div> -->
             <ul>
                 <a href="?p=home">
                     <li>
@@ -79,9 +80,9 @@
         <section class="section-1">
             <?php 
             $page = $_GET['p'];
-            echo $page;
-            // if ($page == "data-siswa") {
-            // }
+            if ($page == "data-siswa") {
+                include "siswa/tampil.php";    
+            }   
             ?>
         </section>
     </div>

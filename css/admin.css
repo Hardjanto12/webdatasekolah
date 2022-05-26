@@ -116,15 +116,15 @@ a {
 #checkbox:checked ~ .body .side-bar {
   width: 60px;
 }
-#checkbox:checked ~ .body .side-bar .user-p {
+/* #checkbox:checked ~ .body .side-bar .user-p {
   visibility: hidden;
-}
+} */
 #checkbox:checked ~ .body .side-bar a span {
   display: none;
 }
-
+/* 
 #checkbox:checked ~ .body .side-bar ul {
   position: absolute;
   bottom: 220px;
   transition: 1s top;
-}
+} */

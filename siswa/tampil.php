@@ -1,11 +1,11 @@
 <?php 
-include '../database.php';
+include 'database.php';
 $db = new database();
 ?>
 
 <h3>Data User</h3>
 
-<a href="input.php">Input Data</a>
+<a href="siswa/input.php">Input Data</a>
 <table border="1">
     <tr>
         <th>No</th>
@@ -22,8 +22,8 @@ $db = new database();
         <td><?php echo $x['username']; ?></td>
         <td><?php echo $x['password']; ?></td>
         <td>
-            <a href="edit.php?id=<?php echo $x['id_admin']; ?>&aksi=edit">Edit</a>
-            <a href="proses.php?id=<?php echo $x['id_admin']; ?>&aksi=hapus">Hapus</a>
+            <a href="siswa/edit.php?id=<?php echo $x['id_admin']; ?>&aksi=edit">Edit</a>
+            <a href="siswa/proses.php?id=<?php echo $x['id_admin']; ?>&aksi=hapus">Hapus</a>
         </td>
     </tr>
     <?php 
