@@ -7,6 +7,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- icon cdn fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
     <!-- Bootstrap CSS v5.0.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -16,13 +19,72 @@
 </head>
 
 <body>
-    <header class="header p-3">
-        <h3 class="u-name">SideBar</h3>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill"
-            viewBox="0 0 16 16">
-            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-        </svg>
+    <input type="checkbox" id="checkbox">
+    <header class="header">
+        <h2 class="u-name">SIDE <b>BAR</b>
+            <label for="checkbox">
+                <i id="navbtn" class="bi bi-list" aria-hidden="true"></i>
+            </label>
+        </h2>
+        <i class="bi bi-person-fill" aria-hidden="true"></i>
     </header>
+    <div class="body">
+        <!-- sidebar -->
+        <nav class="side-bar">
+            <div class="user-p">
+                <img src="img\user-default.png" alt="">
+                <h4 class="mt-2">Full Name</h4>
+            </div>
+            <ul>
+                <a href="?p=home">
+                    <li>
+                        <i class="bi bi-laptop"></i>
+                        <span>Home</span>
+                    </li>
+                </a>
+                <a href="?p=data-guru">
+                    <li>
+                        <i class="bi bi-person-video3"></i>
+                        <span>Data Guru</span>
+                    </li>
+                </a>
+                <a href="?p=data-siswa">
+                    <li>
+                        <i class="bi bi-people"></i>
+                        <span>Data Siswa</span>
+                    </li>
+                </a>
+                <a href="?p=data-alumni">
+                    <li>
+                        <i class="bi bi-mortarboard"></i>
+                        <span>Data Alumni</span>
+                    </li>
+                </a>
+                <a href="?p=ganti-password">
+                    <li>
+                        <i class="bi bi-gear"></i>
+                        <span>Ubah Password</span>
+                    </li>
+                </a>
+                <a href="?p=logout">
+                    <li>
+                        <i class="bi bi-power"></i>
+                        <span>Logout</span>
+                    </li>
+                </a>
+            </ul>
+        </nav>
+
+        <!-- main content -->
+        <section class="section-1">
+            <?php 
+            $page = $_GET['p'];
+            echo $page;
+            // if ($page == "data-siswa") {
+            // }
+            ?>
+        </section>
+    </div>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
