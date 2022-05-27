@@ -1,6 +1,6 @@
 <?php 
-include '../database.php';
-$db = new database();
+include '../db_siswa.php';
+$db = new dbsiswa();
  
 $aksi = $_GET['aksi'];
  if($aksi == "tambah"){

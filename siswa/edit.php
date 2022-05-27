@@ -1,13 +1,13 @@
 <?php 
-include '../database.php';
-$db = new database();
+include 'db_siswa.php';
+$db = new dbsiswa();
 ?>
 
 <h3>Edit Data User</h3>
 
 <form action="proses.php?aksi=update" method="post">
     <?php
-foreach($db->edit($_GET['id']) as $d){
+foreach($db->getdata_edit($_GET['id']) as $d){
 ?>
     <table>
         <tr>

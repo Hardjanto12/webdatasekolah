@@ -1,6 +1,6 @@
 <?php 
-include 'database.php';
-$db = new database();
+include 'siswa/db_siswa.php';
+$db = new dbsiswa();
 ?>
 
 <h3>Data Siswa</h3>

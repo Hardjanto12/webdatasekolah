@@ -60,7 +60,7 @@ if (isset($_POST['register'])) {
                 <div class="collapse navbar-collapse" id="navs">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
@@ -69,7 +69,7 @@ if (isset($_POST['register'])) {
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sign In</a>
+                            <a class="nav-link" href="login.php">Sign In</a>
                         </li>
                     </ul>
                 </div>
