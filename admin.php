@@ -81,7 +81,7 @@
             <?php 
             $page = $_GET['p'];
             if ($page == "data-siswa") {
-                include "siswa/tampil.php";    
+                include "siswa/tampil.php";   
             }   
             ?>
         </section>

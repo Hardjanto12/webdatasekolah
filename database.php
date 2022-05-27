@@ -6,11 +6,13 @@ class database{
 	var $uname = "root";
 	var $pass = "";
 	var $db = "tmp_sekolah";
+	var $port = "3307";
+	
 
 	var $conn;
 
 	function __construct(){
-	$this->conn = mysqli_connect($this->host, $this->uname, $this->pass, $this->db);	
+	$this->conn = mysqli_connect($this->host, $this->uname, $this->pass, $this->db, $this->port);	
 	}
 
 	function auth($query){
