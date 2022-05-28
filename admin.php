@@ -21,7 +21,7 @@
 <body>
     <input type="checkbox" id="checkbox">
     <header class="header">
-        <h2 class="u-name">Data<b>Sekolah</b>
+        <h2 class="u-name">SMAHang<b>Tuah4</b>
             <label for="checkbox">
                 <i id="navbtn" class="bi bi-list" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="bottom"
                     title="Expand menu"></i>
@@ -77,14 +77,14 @@
         </nav>
 
         <!-- main content -->
-        <section class="section-1">
+        <div class="section p-2">
             <?php 
             $page = $_GET['p'];
             if ($page == "data-siswa") {
                 include "siswa/tampil.php";   
             }   
             ?>
-        </section>
+        </div>
     </div>
 
     <!-- Bootstrap JavaScript Libraries -->
