@@ -23,14 +23,6 @@ class dbsiswa{
 		return $hasil;
 	}
 
-	function tampil_data(){
-		$data = mysqli_query($this->conn, "select * from admin");
-		while($d = mysqli_fetch_array($data)){
-			$hasil[] = $d;
-		}
-		return $hasil;
-	}
-
 	function input($nis, $nama_lengkap, $tgl_lahir, $jenis_kelamin, $alamat, $nama_ayah, $nama_ibu, $notelp, $fotofile, $tahun_lulus)
 	{
 		$namafoto = $_FILES['foto']['name'];
@@ -105,8 +97,6 @@ class dbsiswa{
 		}	
 		
 		mysqli_query($this->conn,"update siswa set nis='$nis', nama_lengkap='$nama_lengkap', tgl_lahir='$tgl_lahir', jenis_kelamin='$jenis_kelamin', alamat='$alamat', nama_ayah='$nama_ayah', nama_ibu='$nama_ibu', notelp='$notelp', foto='$namafoto', tahun_lulus='$tahun_lulus' where id_siswa='$id'");
-
-
 	}
 }
 

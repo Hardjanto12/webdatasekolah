@@ -1,8 +1,9 @@
 <?php 
 include 'db_siswa.php';
 $db = new dbsiswa();
- 
-$aksi = $_GET['aksi'];
+
+$aksi = $_GET['aksi'];	
+
  if($aksi == "tambah"){
 	$db->input($_POST['nis'], $_POST['nama_lengkap'], $_POST['tgl_lahir'], $_POST['jenis_kelamin'], $_POST['alamat'], $_POST['nama_ayah'], $_POST['nama_ibu'], $_POST['notelp'], $_FILES['foto'], $_POST['tahun_lulus']);
   	header("location:../admin.php?p=data-siswa");

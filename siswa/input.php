@@ -2,7 +2,7 @@
 <form action="siswa/proses.php?aksi=tambah" method="post" enctype="multipart/form-data" class="text-start">
     <div class="form-group">
         <label>NIS</label>
-        <input type="text" name="nis" class="form-control" placeholder="NIS">
+        <input type="text" name="nis" class="form-control" placeholder="NIS" value="<?= rand() ?>">
     </div>
     <div class="form-group">
         <label>Nama Lengkap</label>
@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
         <label>Tanggal Lahir</label>
-        <input type="date" name="tgl_lahir" class="form-control" placeholder="Tanggal Lahir">
+        <input type="date" name="tgl_lahir" class="form-control" value="" min="1980-01-01" max="2030-12-31">
     </div>
     <div class="form-group">
         <label>Jenis Kelamin</label>

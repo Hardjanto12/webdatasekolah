@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/edit.css">
+    <link rel="stylesheet" href="css/tampil.css">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
 
 </head>
@@ -21,7 +25,7 @@
 <body>
     <input type="checkbox" id="checkbox">
     <header class="header">
-        <h2 class="u-name">SMAHang<b>Tuah4</b>
+        <h2 class="u-name">SMA Hang<b>Tuah4</b>
             <label for="checkbox">
                 <i id="navbtn" class="bi bi-list" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="bottom"
                     title="Expand menu"></i>
@@ -77,13 +81,8 @@
         </nav>
 
         <!-- main content -->
-        <div class="section p-2">
-            <?php 
-            $page = $_GET['p'];
-            if ($page == "data-siswa") {
-                include "siswa/tampil.php";   
-            }   
-            ?>
+        <div class="section">
+            <?php include 'menu.php'?>
         </div>
     </div>
 
@@ -94,6 +93,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
+    <!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
 </html>
