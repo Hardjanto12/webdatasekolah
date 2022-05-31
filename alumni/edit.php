@@ -1,16 +1,16 @@
 <!-- select data siswa from database -->
 <?php
-  include 'db_siswa.php';
-    $db = new dbsiswa();
+  include 'db_alumni.php';
+    $db = new dbalumni();
     $db->getdata_edit($_GET['id']);
     
 ?>
 
-<!-- form edit siswa -->
+<!-- form edit alumni -->
 <div class="container-fluid bg-primary text-light">
     <div class="row p-1 mt-2">
         <div class="col-1">
-            <a href="?p=data-siswa" class="text-white">
+            <a href="?p=data-alumni" class="text-white">
                 <i class="bi bi-arrow-left"></i>
             </a>
         </div>
@@ -20,7 +20,7 @@
     </div>
 </div>
 <div class="container p-4 editform">
-    <form action="siswa/proses.php?aksi=update" method="post" enctype="multipart/form-data">
+    <form action="alumni/proses.php?aksi=update" method="post" enctype="multipart/form-data">
         <?php foreach($db->getdata_edit($_GET['id']) as $x): ?>
         <input type="hidden" name="id" value="<?php echo $x['id_siswa']; ?>">
         <input type="hidden" name="gambarlama" value="<?php echo $x['foto']; ?>">
@@ -77,10 +77,10 @@
             <input type="file" name="foto" class="form-control">
         </div>
 
-        <!-- <div class="form-group">
+        <div class="form-group">
             <label>Tahun Lulus</label>
-            <input type="text" name="tahun_lulus" class="form-control" value="<?php //echo $x['tahun_lulus']; ?>">
-        </div> -->
+            <input type="text" name="tahun_lulus" class="form-control" value="<?php echo $x['tahun_lulus']; ?>">
+        </div>
         <div class="form-group">
             <input type="submit" name="submit" class="btn btn-primary" value="Update Data">
         </div>

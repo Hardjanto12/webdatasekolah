@@ -6,4 +6,10 @@
     elseif ($page == "data-siswa-edit") {
         include "siswa/edit.php";
     }
+    elseif ($page == "data-alumni-edit") {
+        include "alumni/edit.php";
+    }
+    elseif ($page == "data-alumni") {
+        include "alumni/tampil.php";
+    }
 ?>

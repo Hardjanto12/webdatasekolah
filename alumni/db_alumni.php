@@ -1,6 +1,6 @@
 <?php 
  
-class dbsiswa{
+class dbalumni{
  
 	var $host = "localhost";
 	var $uname = "root";

@@ -1,5 +1,5 @@
 <!-- create bootstrap 5 form nis, nama lengkap, tanggal lahir, jenis kelamin, alamat, nama_ayah, nama_ibu, notelp, foto, tahun_lulus and submit button -->
-<form action="siswa/proses.php?aksi=tambah" method="post" enctype="multipart/form-data" class="text-start">
+<form action="alumni/proses.php?aksi=tambah" method="post" enctype="multipart/form-data" class="text-start">
     <div class="form-group">
         <label>NIS</label>
         <input type="text" name="nis" class="form-control" placeholder="NIS" value="<?= rand() ?>">
@@ -40,9 +40,9 @@
         <label>Foto</label>
         <input type="file" name="foto" class="form-control" placeholder="Foto">
     </div>
-    <!-- <div class="form-group">
+    <div class="form-group">
         <label>Tahun Lulus</label>
         <input type="text" name="tahun_lulus" class="form-control" placeholder="Tahun Lulus">
-    </div> -->
+    </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
