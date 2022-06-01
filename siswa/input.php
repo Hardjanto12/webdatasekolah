@@ -2,7 +2,7 @@
 <form action="siswa/proses.php?aksi=tambah" method="post" enctype="multipart/form-data" class="text-start">
     <div class="form-group">
         <label>NIS</label>
-        <input type="text" name="nis" class="form-control" placeholder="NIS" value="<?= rand() ?>">
+        <input type="text" name="nis" class="form-control" placeholder="NIS" value="">
     </div>
     <div class="form-group">
         <label>Nama Lengkap</label>

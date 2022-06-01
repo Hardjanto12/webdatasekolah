@@ -1,6 +1,6 @@
 <?php 
-include 'db_alumni.php';
-$db = new dbalumni();
+include 'database.php';
+$db = new database();
 
 $aksi = $_GET['aksi'];	
 

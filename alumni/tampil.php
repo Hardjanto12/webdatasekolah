@@ -1,6 +1,6 @@
 <?php 
-include 'alumni/db_alumni.php';
-$db = new dbalumni();
+include 'database.php';
+$db = new database();
 ?>
 
 <div class="container-fluid ps-4 pt-3 pe-4 align-top">

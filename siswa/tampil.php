@@ -1,6 +1,6 @@
 <?php 
-include 'siswa/db_siswa.php';
-$db = new dbsiswa();
+include 'database.php';
+$db = new database();
 ?>
 
 <div class="container-fluid ps-4 pt-3 pe-4 align-top">

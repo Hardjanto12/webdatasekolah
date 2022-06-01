@@ -1,7 +1,7 @@
 <!-- select data siswa from database -->
 <?php
-  include 'db_alumni.php';
-    $db = new dbalumni();
+  include 'database.php';
+    $db = new database();
     $db->getdata_edit($_GET['id']);
     
 ?>

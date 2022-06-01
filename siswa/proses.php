@@ -1,6 +1,6 @@
 <?php 
-include 'db_siswa.php';
-$db = new dbsiswa();
+include '../database.php';
+$db = new database();
 
 $aksi = $_GET['aksi'];	
 
