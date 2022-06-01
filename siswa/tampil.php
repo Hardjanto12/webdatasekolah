@@ -45,7 +45,7 @@ $db = new database();
             <?php
 	$no = 1;
     // create pagination
-    $result = $db->select_data("select * from siswa where tahun_lulus IS NULL");
+    $result = $db->select_data("select * from siswa where tahun_lulus IS NULL OR tahun_lulus = '0000'");
     $limit = 10;
     $jumlah_data = count($result);
     $jumlah_halaman = ceil($jumlah_data / $limit);
@@ -54,9 +54,9 @@ $db = new database();
     $no = $awal + 1;
     if (isset($_POST['cari'])) {
         $keyword = $_POST['keyword'];
-        $result = $db->select_data("select * from siswa where nama_lengkap like '%$keyword%' or nis like '%$keyword%' AND tahun_lulus IS NULL");
+        $result = $db->select_data("select * from siswa where nama_lengkap like '%$keyword%' or nis like '%$keyword%' AND tahun_lulus IS NULL OR tahun_lulus = '0000'");
     } else {
-        $result = $db->select_data("select * from siswa where tahun_lulus IS NULL limit $awal, $limit");
+        $result = $db->select_data("select * from siswa where tahun_lulus IS NULL OR tahun_lulus = '0000' limit $awal, $limit");
     }
 	foreach($result as $x):
 	?>

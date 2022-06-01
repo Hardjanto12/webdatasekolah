@@ -39,6 +39,10 @@ class database{
 			return false;
 		}
 		
+		if ($tahun_lulus == "") {
+			$tahun_lulus = NULL;
+		}
+
 		$extensiGambarValid = ['jpg','png','jpeg'];
 		$extensiGambar = explode('.', $namafoto);
 		$extensiGambar = strtolower(end($extensiGambar));

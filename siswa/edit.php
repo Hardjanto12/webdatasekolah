@@ -77,10 +77,10 @@
             <input type="file" name="foto" class="form-control">
         </div>
 
-        <!-- <div class="form-group">
+        <div class="form-group">
             <label>Tahun Lulus</label>
-            <input type="text" name="tahun_lulus" class="form-control" value="<?php //echo $x['tahun_lulus']; ?>">
-        </div> -->
+            <input type="text" name="tahun_lulus" class="form-control" value="<?= $x['tahun_lulus'] ?>">
+        </div>
         <div class="form-group">
             <input type="submit" name="submit" class="btn btn-primary" value="Update Data">
         </div>
