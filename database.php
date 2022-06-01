@@ -25,7 +25,15 @@ class database{
 		while($d = mysqli_fetch_array($data)){
 			$hasil[] = $d;
 		}
+		if (empty($hasil)){
+		// pemeriksaan menggunakan fungsi isset()
+		$hasil = isset($_POST['hasil']) ? $_POST['hasil'] : '';
+		// pemeriksaan menggunakan fungsi empty()
+		$hasil = !empty($_POST['hasil']) ? $_POST['hasil'] : '';
+		}
+		else{
 		return $hasil;
+		}
 	}
 
 	function input($nis, $nama_lengkap, $tgl_lahir, $jenis_kelamin, $alamat, $nama_ayah, $nama_ibu, $notelp, $fotofile, $tahun_lulus)

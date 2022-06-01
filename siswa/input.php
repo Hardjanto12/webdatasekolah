@@ -40,9 +40,9 @@
         <label>Foto</label>
         <input type="file" name="foto" class="form-control" placeholder="Foto">
     </div>
-    <div class="form-group">
-        <label>Tahun Lulus</label>
-        <input type="text" name="tahun_lulus" class="form-control" placeholder="Tahun Lulus" value="NULL">
-    </div>
+    <!-- <div class="form-group"> -->
+    <!-- <label>Tahun Lulus</label> -->
+    <input type="hidden" name="tahun_lulus" class="form-control" placeholder="Tahun Lulus" value="0000">
+    <!-- </div> -->
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>

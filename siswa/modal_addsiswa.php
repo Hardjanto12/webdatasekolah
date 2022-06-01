@@ -1,11 +1,11 @@
 <!-- button -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal"><i class="bi bi-plus-lg"
-        aria-hidden="true"></i>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModalsiswa"><i
+        class="bi bi-plus-lg" aria-hidden="true"></i>
     Tambahkan
-    Siswa
+    siswa
 </button>
-<!-- Modal Add Data Siswa-->
-<div class="modal fade " id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+<!-- Modal Add Data Alumni-->
+<div class="modal fade " id="addModalsiswa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
     data-bs-backdrop="static">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">

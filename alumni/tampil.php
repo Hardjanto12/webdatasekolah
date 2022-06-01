@@ -47,6 +47,10 @@ $db = new database();
 	$no = 1;
     // create pagination
     $result = $db->select_data("select * from siswa where tahun_lulus <> '0000'");
+    if (empty($result)) {
+        echo '<p class="text-center">Data Masih Kosong</p>';
+        die;
+    }
     $limit = 10;
     $jumlah_data = count($result);
     $jumlah_halaman = ceil($jumlah_data / $limit);
@@ -56,8 +60,19 @@ $db = new database();
     if (isset($_POST['cari'])) {
         $keyword = $_POST['keyword'];
         $result = $db->select_data("select * from siswa where nama_lengkap like '%$keyword%' or nis like '%$keyword%' AND tahun_lulus <> '0000'");
+        if (empty($result)) {
+            $result = [];
+            echo "<tr><td colspan='8' class='text-center'>Data '$keyword' tidak ditemukan</td></tr>";
+            die;
+        }
     } else {
         $result = $db->select_data("select * from siswa where tahun_lulus <> '0000' limit $awal, $limit");
+    }
+    if (!empty($result)) {
+        $result = $db->select_data("select * from siswa where tahun_lulus = '0000'");
+    } else {
+        $result = [];
+        echo "<tr><td colspan='8' class='text-center'>Data masih kosong</td></tr>";
     }
 	foreach($result as $x):
 	?>
