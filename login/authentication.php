@@ -50,15 +50,18 @@ class authentication{
         }
     }
 
-    // verify session
-    public function verify(){
-        session_start();
-        if (isset($_SESSION['username'])) {
+    function change_password($username, $password, $confirmpassword){
+        $changepass = new database();
+        if ($password = $confirmpassword) {
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $query = "UPDATE admin SET password = '$hash' WHERE username = '$username'";
+            mysqli_query($changepass->conn, $query);
+            echo "<script>alert('Password berhasil diubah');</script>";
             return true;
         } else {
-            return false;
+            echo 'Password tidak sama';
         }
-    }  
+    }
 
 }  
 ?>

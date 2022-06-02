@@ -21,6 +21,9 @@
     elseif ($page == "data-guru-edit") {
         include "guru/edit.php";
     }
+    elseif ($page == "ganti-password") {
+        include "login/change_password.php";
+    }
     elseif ($page == "logout") {
         header("location:login/logout.php");
     }

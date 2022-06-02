@@ -25,7 +25,7 @@ $db = new database();
     <!-- navbar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class=" container">
-            <a class="navbar-brand" href="#">Company</a>
+            <a class="navbar-brand" href="#">SMA HANG TUAH 4</a>
             <div class=" d-flex my-2 my-lg-0">
                 <div class="d-grid gap-2">
                     <button type="button" class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
