@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="col-10">
-            <h5>Edit Data Siswa</h5>
+            <h5>Edit Data Alumni</h5>
         </div>
     </div>
 </div>
@@ -36,6 +36,12 @@
         <div class="form-group">
             <label>Nama Lengkap</label>
             <input type="text" name="nama_lengkap" class="form-control" value="<?php echo $x['nama_lengkap']; ?>">
+        </div>
+
+        <!-- create form tempat lahir -->
+        <div class="form-group">
+            <label>Tempat Lahir</label>
+            <input type="text" name="tempat_lahir" class="form-control" value="<?php echo $x['tempat_lahir']; ?>">
         </div>
 
         <div class="form-group">

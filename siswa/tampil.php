@@ -1,6 +1,14 @@
 <?php 
 include 'database.php';
 $db = new database();
+$cek = $db->select_data("SELECT * FROM siswa where tahun_lulus = '0000'");
+if (empty($cek)) {
+    $disabled = "disabled";
+}
+else {
+    $disabled = '';
+}
+
 ?>
 
 <div class="container-fluid ps-4 pt-3 pe-4 align-top">
@@ -16,7 +24,7 @@ $db = new database();
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Cari data siswa" name="keyword">
                     <div class="input-group-append ms-2">
-                        <button class="btn btn-primary" type="submit" name="cari">Cari</button>
+                        <button class="btn btn-primary" type="submit" name="cari" <?= $disabled?>>Cari</button>
                     </div>
                 </div>
             </form>
@@ -43,12 +51,11 @@ $db = new database();
                 <th>Opsi</th>
             </tr>
             <?php
-	$no = 1;
-    // create pagination
+    $nourut = 1;
+    /* It's a pagination function. */
     $result = $db->select_data("select * from siswa where tahun_lulus = '0000'");
     if (empty($result)) {
-        echo '<p class="text-center">Data Masih Kosong</p>';
-        die;
+        $result = [];
     }
     $limit = 10;
     $jumlah_data = count($result);
@@ -56,6 +63,7 @@ $db = new database();
     $halaman_aktif = (isset($_GET['halaman'])) ? $_GET['halaman'] : 1;
     $awal = ($halaman_aktif - 1) * $limit;
     $no = $awal + 1;
+    /* This is a search function. */
     if (isset($_POST['cari'])) {
         $keyword = $_POST['keyword'];
         $result = $db->select_data("select * from siswa where nama_lengkap like '%$keyword%' or nis like '%$keyword%' AND tahun_lulus = '0000'");
@@ -64,19 +72,20 @@ $db = new database();
             echo "<tr><td colspan='8' class='text-center'>Data '$keyword' tidak ditemukan</td></tr>";
             die;
         }
-    } else {
-        $result = $db->select_data("select * from siswa where tahun_lulus = '0000' limit $awal, $limit");
-    }
+    }  
+
+    /* It's a function to check if the data is empty or not. If the data is empty, it will show the
+    message "Data masih kosong". */
     if (!empty($result)) {
-        $result = $db->select_data("select * from siswa where tahun_lulus = '0000'");
+        $result = $db->select_data("select * from siswa where tahun_lulus = '0000' limit $awal, $limit");
     } else {
         $result = [];
         echo "<tr><td colspan='8' class='text-center'>Data masih kosong</td></tr>";
     }
-        foreach($result as $x):    
+    foreach($result as $x):    
 	?>
             <tr>
-                <td><?php echo $no++; ?></td>
+                <td><?php echo $nourut++; ?></td>
                 <td><img style="width:75px; height:75px; object-fit:cover;  border-radius:50%;"
                         src="img/<?php if (empty($x['foto'])) { echo "user-default.png"; } else { echo $x['foto']; } ?>">
                 </td>
@@ -91,9 +100,10 @@ $db = new database();
                             class="bi bi-pencil-square"></i> Edit</a>
 
                     <span> </span>
-                    <a class="btn btn-sm btn-danger"
-                        href="siswa/proses.php?id=<?php echo $x['id_siswa']; ?>&aksi=hapus"><i class="bi bi-trash"></i>
-                        Hapus</a>
+                    <!-- create delete button with alert -->
+                    <a class="btn btn-sm btn-danger" href="siswa/proses.php?id=<?php echo $x['id_siswa']; ?>&aksi=hapus"
+                        onclick="return confirm('Yakin ingin menghapus data?')"><i class="bi bi-trash"></i>
+                        Delete</a>
                 </td>
             </tr>
             <?php 

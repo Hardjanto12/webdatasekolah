@@ -12,4 +12,10 @@
     elseif ($page == "data-alumni") {
         include "alumni/tampil.php";
     }
+    elseif ($page == "data-guru") {
+        include "guru/tampil.php";
+    }
+    elseif ($page == "data-guru-edit") {
+        include "guru/edit.php";
+    }
 ?>

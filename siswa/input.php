@@ -1,4 +1,4 @@
-<!-- create bootstrap 5 form nis, nama lengkap, tanggal lahir, jenis kelamin, alamat, nama_ayah, nama_ibu, notelp, foto, tahun_lulus and submit button -->
+<!-- create bootstrap 5 form nip, nama lengkap, tanggal lahir, tempat lahir, jenis kelamin, alamat, nama_ayah, nama_ibu, notelp, foto, tahun_lulus and submit button -->
 <form action="siswa/proses.php?aksi=tambah" method="post" enctype="multipart/form-data" class="text-start">
     <div class="form-group">
         <label>NIS</label>
@@ -7,6 +7,11 @@
     <div class="form-group">
         <label>Nama Lengkap</label>
         <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap">
+    </div>
+    <!-- create form tempat_lahir -->
+    <div class="form-group">
+        <label>Tempat Lahir</label>
+        <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir">
     </div>
     <div class="form-group">
         <label>Tanggal Lahir</label>

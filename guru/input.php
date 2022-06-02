@@ -1,14 +1,14 @@
-<!-- create bootstrap 5 form nis, nama lengkap, tanggal lahir, jenis kelamin, alamat, nama_ayah, nama_ibu, notelp, foto, tahun_lulus and submit button -->
-<form action="alumni/proses.php?aksi=tambah" method="post" enctype="multipart/form-data" class="text-start">
+<!-- create bootstrap 5 form nip, nama lengkap, tanggal lahir, tempat lahir, jenis kelamin, alamat, notelp, mata pelajaran, foto and submit button -->
+<form action="guru/proses.php?aksi=tambah" method="post" enctype="multipart/form-data" class="text-start">
     <div class="form-group">
-        <label>NIS</label>
-        <input type="text" name="nis" class="form-control" placeholder="NIS" value="">
+        <label>NIP</label>
+        <input type="text" name="nip" class="form-control" placeholder="NIP" value="">
     </div>
     <div class="form-group">
         <label>Nama Lengkap</label>
         <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap">
     </div>
-    <!-- create form tempat lahir -->
+    <!-- form tempat lahir -->
     <div class="form-group">
         <label>Tempat Lahir</label>
         <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir">
@@ -29,25 +29,17 @@
         <textarea name="alamat" class="form-control" placeholder="Alamat"></textarea>
     </div>
     <div class="form-group">
-        <label>Nama Ayah</label>
-        <input type="text" name="nama_ayah" class="form-control" placeholder="Nama Ayah">
-    </div>
-    <div class="form-group">
-        <label>Nama Ibu</label>
-        <input type="text" name="nama_ibu" class="form-control" placeholder="Nama Ibu">
-    </div>
-    <div class="form-group">
         <label>No Telp</label>
         <input type="text" name="notelp" class="form-control" placeholder="No Telp">
+    </div>
+    <div class="form-group">
+        <label>Mata Pelajaran</label>
+        <input type="text" name="mata_pelajaran" class="form-control" placeholder="Mata Pelajaran">
     </div>
     <!-- form to save picture into img folder -->
     <div class="form-group">
         <label>Foto</label>
         <input type="file" name="foto" class="form-control" placeholder="Foto">
-    </div>
-    <div class="form-group">
-        <label>Tahun Lulus</label>
-        <input type="text" name="tahun_lulus" class="form-control" placeholder="Tahun Lulus">
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
