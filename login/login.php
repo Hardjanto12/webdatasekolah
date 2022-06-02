@@ -1,6 +1,5 @@
 <?php 
-include '../database.php';
-include 'auth.php';
+include 'authentication.php';
 
 ?>
 
@@ -27,7 +26,7 @@ include 'auth.php';
     <!-- navbar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class=" container">
-            <a class="navbar-brand" href="../index.php">Company</a>
+            <a class="navbar-brand" href="../index.php">SMA HANG TUAH 4</a>
             <div class=" d-flex my-2 my-lg-0">
                 <div class="d-grid gap-2">
                     <button type="button" class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
@@ -65,8 +64,10 @@ include 'auth.php';
                     <div class="card-body">
                         <div class="row">
                             <?php 
-                        $login = new login();
-                        $login->auth();
+                       if(isset($_POST['login'])){
+                        $login = new authentication();
+                        $login->auth($_POST['username'], $_POST['password']);
+                    }
                             ?>
                         </div>
                         <form method="post">

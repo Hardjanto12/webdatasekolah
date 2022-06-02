@@ -3,6 +3,9 @@
     if ($page == "data-siswa") {
         include "siswa/tampil.php";   
     }   
+    elseif ($page == "home") {
+        include "home/home.php";
+    }
     elseif ($page == "data-siswa-edit") {
         include "siswa/edit.php";
     }
@@ -17,5 +20,8 @@
     }
     elseif ($page == "data-guru-edit") {
         include "guru/edit.php";
+    }
+    elseif ($page == "logout") {
+        header("location:login/logout.php");
     }
 ?>

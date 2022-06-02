@@ -20,6 +20,7 @@ class database{
 		return $hasil;
 	}
 
+
     function select_data($select){
 		$data = mysqli_query($this->conn, $select);
 		while($d = mysqli_fetch_array($data)){
@@ -159,6 +160,7 @@ class database{
 			return false;
 		}
 		
+
 		$extensiGambarValid = ['jpg','png','jpeg'];
 		$extensiGambar = explode('.', $fotofile);
 		$extensiGambar = strtolower(end($extensiGambar));

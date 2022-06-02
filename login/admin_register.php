@@ -1,29 +1,9 @@
 <?php 
-include '../database.php';
-$db = new database();
-
+include 'authentication.php';
+$regist = new authentication();
 if (isset($_POST['register'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $confirmpassword = $_POST['confirmpassword'];
-    
-
-    if ($password = $confirmpassword) {
-        $pwd = password_hash($password, 
-        PASSWORD_DEFAULT);
-        $query = "INSERT INTO admin (id, username, password)
-        VALUES ('', '$username', '$pwd'";
-
-        echo '<div class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-          <div class="toast-body">
-            Berhasil menyimpan user...
-          </div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-      </div>';
-    }
-
+    $regist->register($_POST['username'], $_POST['password'], $_POST['confirmpassword']);
+    header("location:login.php");
 }
 ?>
 
@@ -61,7 +41,7 @@ if (isset($_POST['register'])) {
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="../index.php">Home</a>
-                        </li>
+                        </li>s
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
                         </li>
