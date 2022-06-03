@@ -13,6 +13,20 @@
 <div class="container p-3">
     <div class="row">
         <div class="col-md-12">
+            <?php 
+            // check if nip == password
+            if (password_verify($row['nip'],$row['password']) == true) {
+                echo '<div class="alert alert-warning" role="alert">
+                Harap segera ganti password anda, <a href="?p=ganti-password" class="alert-link">silahkan klik
+                    disini</a> untuk segera
+                mengganti password anda.
+            </div>';
+            }
+            ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h4>Detail Profile</h4>
@@ -20,7 +34,11 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="img/<?=$row['foto'];?>" class="img-thumbnail">
+                            <img src="img/<?php 
+                            if($row['foto'] == ""){
+                                echo "user-default.png";}
+                                else{
+                                echo $row['foto'];}?>" class="img-thumbnail">
                         </div>
                         <div class="col-md-8">
                             <table class="table table-striped">

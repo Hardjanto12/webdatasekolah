@@ -13,7 +13,7 @@ class registrasiguru {
                 return false;
             }
             else{
-                $query = "INSERT INTO admin (username, password) VALUES ('$username', '$hash')";
+                $query = "INSERT INTO admin (username, password, privilege) VALUES ('$username', '$hash', 'guru')";
                 mysqli_query($db->conn, $query);
                 echo "<script>alert('Register berhasil');</script>";
                 return true;
