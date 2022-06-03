@@ -28,9 +28,9 @@ if (isset($_POST['register'])) {
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow">
         <div class=" container">
-            <a class="navbar-brand" href="#">Company</a>
+            <a class="navbar-brand" href="#">SMA Hang Tuah 4</a>
             <div class=" d-flex my-2 my-lg-0">
                 <div class="d-grid gap-2">
                     <button type="button" class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"

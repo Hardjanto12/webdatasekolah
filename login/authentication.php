@@ -43,10 +43,20 @@ class authentication{
                 $_SESSION['id_admin'] = $data['id_admin'];
                 header("location:../admin.php?p=home");
             } else {
-                echo "<script>alert('Password salah');</script>";
+                echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <div>
+                 Password Salah
+                </div>
+              </div>';
             }
         } else {
-            echo "<script>alert('Username tidak ditemukan');</script>";
+            echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <div>
+              Username tidak ditemukan
+            </div>
+          </div>';
         }
     }
 

@@ -122,19 +122,19 @@ else {
                     <!-- create previous pagination button-->
                     <?php if ($halaman_aktif > 1) : ?>
                     <li class="page-item"><a class="page-link"
-                            href="?p=data-siswa&halaman=<?php echo $halaman_aktif - 1; ?>">Previous</a></li>
+                            href="?p=data-guru&halaman=<?php echo $halaman_aktif - 1; ?>">Previous</a></li>
                     </li>
                     <?php endif; ?>
                     <!-- create pagination button -->
                     <?php for ($i = 1; $i <= $jumlah_halaman; $i++) : ?>
                     <li class="page-item <?php if ($halaman_aktif == $i) { echo "active"; } ?>">
-                        <a class="page-link" href="?p=data-siswa&halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        <a class="page-link" href="?p=data-guru&halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
                     </li>
                     <?php endfor; ?>
                     <!-- create next pagination button -->
                     <?php if ($halaman_aktif < $jumlah_halaman) : ?>
                     <li class="page-item">
-                        <a class="page-link" href="?p=data-siswa&halaman=<?php echo $halaman_aktif + 1; ?>"
+                        <a class="page-link" href="?p=data-guru&halaman=<?php echo $halaman_aktif + 1; ?>"
                             aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>

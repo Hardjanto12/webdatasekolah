@@ -12,7 +12,6 @@ include 'authentication.php';
     <!-- Bootstrap CSS v5.0.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
@@ -24,9 +23,9 @@ include 'authentication.php';
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class=" container">
-            <a class="navbar-brand" href="../index.php">SMA HANG TUAH 4</a>
+    <nav class="navbar navbar-expand-md shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../index.php">SMA <b>HANG TUAH 4</b></a>
             <div class=" d-flex my-2 my-lg-0">
                 <div class="d-grid gap-2">
                     <button type="button" class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
@@ -58,7 +57,7 @@ include 'authentication.php';
                 <div class="card p-4">
                     <div class="card-title text-center">
                         <div class="row">
-                            <h3>Login</h3>
+                            <h3>Login Page</h3>
                         </div>
                     </div>
                     <div class="card-body">
@@ -74,12 +73,12 @@ include 'authentication.php';
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" name="username" id="username"
-                                    aria-describedby="username" placeholder="Username" required>
+                                    aria-describedby="username" placeholder="Masukkan username" required>
                             </div>
                             <div class="mb-4">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" name="password" id="password"
-                                    aria-describedby="password" placeholder="Password" required>
+                                    aria-describedby="password" placeholder="Masukkan password" required>
                             </div>
                             <div class="text-center">
                                 <button type="submit" name="login" class="btn btn-primary">Login</button>
@@ -91,7 +90,6 @@ include 'authentication.php';
         </div>
     </div>
     <!-- end of main content -->
-
 
 
 

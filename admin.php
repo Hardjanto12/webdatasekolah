@@ -29,8 +29,8 @@ include 'login/verify.php';
 
 <body>
     <input type="checkbox" id="checkbox">
-    <header class="header">
-        <h2 class="u-name">SMA Hang<b>Tuah4</b>
+    <header class="header shadow-sm">
+        <h2 class="u-name">SMA <b>HANG TUAH 4</b>
             <label for="checkbox">
                 <i id="navbtn" class="bi bi-list" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="bottom"
                     title="Expand menu"></i>
@@ -38,7 +38,7 @@ include 'login/verify.php';
         </h2>
         <!-- <i class="bi bi-person-fill" aria-hidden="true"></i> -->
     </header>
-    <div class="body">
+    <div class="body" id="bg-page">
         <!-- sidebar -->
         <nav class="side-bar">
             <?php include 'side.php'?>

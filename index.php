@@ -6,7 +6,7 @@ $db = new database();
 <html lang="en">
 
 <head>
-    <title>Login</title>
+    <title>Home</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,9 +23,9 @@ $db = new database();
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md shadow-sm">
         <div class=" container">
-            <a class="navbar-brand" href="#">SMA HANG TUAH 4</a>
+            <a class="navbar-brand" href="#">SMA <b>HANG TUAH 4</b></a>
             <div class=" d-flex my-2 my-lg-0">
                 <div class="d-grid gap-2">
                     <button type="button" class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
@@ -44,7 +44,7 @@ $db = new database();
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login/login.php" id="btnLogin">Sign In</a>
+                            <a class="nav-link" href="login/login.php" id="btnLogin"><strong>Sign In</strong></a>
                         </li>
                     </ul>
                 </div>
@@ -54,11 +54,23 @@ $db = new database();
     <!-- end navbar -->
 
     <!-- main content -->
-    <div class="container-fluid" id="content">
+    <div class="container p-3 text-center">
+        <div class="row">
+            <div class="col">
+                <h4 class="display-4">SELAMAT DATANG DI WEBSITE DATABASE</h4>
+                <h3 class="display-3" style="color: #fcb920">SMA HANG TUAH 4</h3>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <img style="width: 500px; height: auto;" src="img/stats.svg" alt="stats illustration">
+            </div>
+        </div>
     </div>
+
+
+
     <!-- end of main content -->
-
-
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

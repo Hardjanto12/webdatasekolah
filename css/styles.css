@@ -1,5 +1,59 @@
 body {
-  background: #f3f4f9;
-  font-family: "Inter", sans-serif;
-  overflow: hidden;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+b {
+  color: #fcb920;
+}
+
+.btn-primary {
+  color: whitesmoke;
+  border-radius: 28px;
+  padding: 8px 70px;
+  font-size: 20px;
+}
+.btn-primary:hover {
+  color: whitesmoke;
+  border-radius: 28px;
+  padding: 8px 70px;
+  font-size: 20px;
+}
+
+.card {
+  /* make the card rounded */
+  border-radius: 28px;
+  /* make the card box-shadow */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* set the navbar to #111111 */
+.navbar {
+  background-color: #272727;
+}
+
+label {
+  font-weight: bold;
+}
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: #fcb920;
+}
+.navbar-brand {
+  color: #fff;
+}
+.navbar-brand:hover {
+  color: #fcb920;
+  transition: 500ms color;
+}
+.navbar-collapse {
+  color: white;
+}
+
+.bi-list {
+  color: #fcb920;
 }
