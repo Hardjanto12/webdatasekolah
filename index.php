@@ -35,13 +35,10 @@ $db = new database();
                 <div class="collapse navbar-collapse" id="navs">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
+                            <a class="nav-link" href="#about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="#contact">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="login/login.php" id="btnLogin"><strong>Sign In</strong></a>
@@ -54,11 +51,11 @@ $db = new database();
     <!-- end navbar -->
 
     <!-- main content -->
-    <div class="container p-3 text-center">
+    <div class="container p-3 mb-3 text-center">
         <div class="row">
             <div class="col">
                 <h4 class="display-4">SELAMAT DATANG DI WEBSITE DATABASE</h4>
-                <h3 class="display-3" style="color: #fcb920">SMA HANG TUAH 4</h3>
+                <h3 class="display-3" style="color: #fcb920"><strong>SMA HANG TUAH 4</strong></h3>
             </div>
         </div>
         <div class="row mt-5">
@@ -67,6 +64,99 @@ $db = new database();
             </div>
         </div>
     </div>
+    <div class="container-fluid p-3 text-center mt-3" id="about">
+        <div class="row mb-5">
+            <h2 class="display-3">About Us</h2>
+        </div>
+        <div class="d-flex justify-content-around mb-3">
+            <div class="p-2 ">
+                <img src="img/about.svg" alt="about" style="width: 500px; height: auto;">
+            </div>
+            <div class="p-2 ">
+                <div class="row d-flex">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+                                <tr>
+                                    <td class="text-start"><strong>NPSN</strong></td>
+                                    <td class="text-end">20532398</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start"><strong>STATUS</strong></td>
+                                    <td class="text-end">SWASTA</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start"><strong>BENTUK PENDIDIKAN</strong></td>
+                                    <td class="text-end">SMA</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start"><strong>STATUS KEPEMILIKAN</strong></td>
+                                    <td class="text-end">YAYASAN</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start"><strong>SK PENDIRIAN SEKOLAH</strong></td>
+                                    <td class="text-end">1357/104.7.4</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start"><strong>TANGGAL SK PENDIRIAN</strong></td>
+                                    <td class="text-end">1991-05-27</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start"><strong>SK IZIN OPERASIONAL</strong></td>
+                                    <td class="text-end">P2T/644/19.03/01/IV/2019</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start"><strong>TANGGAL SK IZIN OPERASIONAL</strong></td>
+                                    <td class="text-end">2019-03-19</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid p-3 mt-3 text-center" id="contact">
+        <div class="row mb-5">
+            <h2 class="display-3">Contact</h2>
+        </div>
+        <div class="d-flex justify-content-around mb-3">
+            <div class="p-2">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <tr>
+                                <td class="text-start"><strong>Alamat</strong></td>
+                                <td class="text-end">Jl. Bogowonto No. 18 Surabaya</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start"><strong>Telp.</strong></td>
+                                <td class="text-end">031-5617695</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start"><strong>Fax.</strong></td>
+                                <td class="text-end">5617695</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start"><strong>Email</strong></td>
+                                <td class="text-end">smaht_4@yahoo.co.id</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start"><strong>Akreditasi</strong></td>
+                                <td class="text-end">A</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="container-fluid">
+                    <img src="img/call.svg" alt="contact" style="width: 500px; height: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
