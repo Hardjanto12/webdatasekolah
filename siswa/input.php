@@ -1,21 +1,20 @@
-<!-- create bootstrap 5 form nip, nama lengkap, tanggal lahir, tempat lahir, jenis kelamin, alamat, nama_ayah, nama_ibu, notelp, foto, tahun_lulus and submit button -->
 <form action="siswa/proses.php?aksi=tambah" method="post" enctype="multipart/form-data" class="text-start">
     <div class="form-group">
-        <label>NIS</label>
-        <input type="text" name="nis" class="form-control" placeholder="NIS" value="">
+        <label>NIPD</label>
+        <input type="text" name="nipd" class="form-control" placeholder="NIPD" value="" required>
     </div>
     <div class="form-group">
         <label>Nama Lengkap</label>
-        <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap">
+        <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap" required>
     </div>
     <!-- create form tempat_lahir -->
     <div class="form-group">
         <label>Tempat Lahir</label>
-        <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir">
+        <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" required>
     </div>
     <div class="form-group">
         <label>Tanggal Lahir</label>
-        <input type="date" name="tgl_lahir" class="form-control" value="" min="1980-01-01" max="2030-12-31">
+        <input type="date" name="tgl_lahir" class="form-control" required>
     </div>
     <div class="form-group">
         <label>Jenis Kelamin</label>
@@ -26,24 +25,19 @@
     </div>
     <div class="form-group">
         <label>Alamat</label>
-        <textarea name="alamat" class="form-control" placeholder="Alamat"></textarea>
+        <textarea name="alamat" class="form-control" placeholder="Alamat" required></textarea>
     </div>
     <div class="form-group">
         <label>Nama Ayah</label>
-        <input type="text" name="nama_ayah" class="form-control" placeholder="Nama Ayah">
+        <input type="text" name="nama_ayah" class="form-control" placeholder="Nama Ayah" required>
     </div>
     <div class="form-group">
         <label>Nama Ibu</label>
-        <input type="text" name="nama_ibu" class="form-control" placeholder="Nama Ibu">
+        <input type="text" name="nama_ibu" class="form-control" placeholder="Nama Ibu" required>
     </div>
     <div class="form-group">
         <label>No Telp</label>
         <input type="text" name="notelp" class="form-control" placeholder="No Telp">
-    </div>
-    <!-- form to save picture into img folder -->
-    <div class="form-group">
-        <label>Foto</label>
-        <input type="file" name="foto" class="form-control" placeholder="Foto">
     </div>
     <!-- <div class="form-group"> -->
     <!-- <label>Tahun Lulus</label> -->

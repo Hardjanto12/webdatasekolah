@@ -22,14 +22,10 @@
     <form action="guru/proses.php?aksi=edit" method="post" enctype="multipart/form-data">
         <?php foreach($db->getguru_edit($_GET['id']) as $x): ?>
         <input type="hidden" name="id" value="<?php echo $x['id_guru']; ?>">
-        <input type="hidden" name="gambarlama" value="<?php echo $x['foto']; ?>">
-        <div class="text-center">
-            <img src="img/<?php echo $x['foto']; ?>"
-                style="width: 150px; height:150px; object-fit:cover;  border-radius:50%;">
-        </div>
+
         <div class="form-group">
-            <label>NIP</label>
-            <input type="text" name="nip" class="form-control" value="<?php echo $x['nip']; ?>">
+            <label>NUPTK</label>
+            <input type="text" name="nuptk" class="form-control" value="<?php echo $x['nuptk']; ?>">
         </div>
 
         <div class="form-group">
@@ -70,11 +66,6 @@
             <input type="text" name="mata_pelajaran" class="form-control" value="<?php echo $x['mata_pelajaran']; ?>">
         </div>
 
-        <div class="form-group">
-            <label>Update Foto</label>
-            <br>
-            <input type="file" name="foto" class="form-control">
-        </div>
 
         <div class="form-group">
             <input type="submit" name="submit" class="btn btn-primary" value="Update Data">

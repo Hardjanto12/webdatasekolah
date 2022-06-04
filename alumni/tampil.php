@@ -41,8 +41,7 @@ else {
         <table class="table table-sm text-center table-striped table-bordered align-middle">
             <tr class="table-success">
                 <th>No</th>
-                <th>Foto</th>
-                <th>NIS</th>
+                <th>NIPD</th>
                 <th>Nama Lengkap</th>
                 <th>Tanggal Lahir</th>
                 <th>Jenis Kelamin</th>
@@ -67,7 +66,7 @@ else {
     /* This is the code for searching data. */
     if (isset($_POST['cari'])) {
         $keyword = $_POST['keyword'];
-        $result = $db->select_data("select * from siswa where nama_lengkap like '%$keyword%' or nis like '%$keyword%' AND tahun_lulus <> '0000'");
+        $result = $db->select_data("select * from siswa where nama_lengkap like '%$keyword%' or nipd like '%$keyword%' AND tahun_lulus <> '0000'");
         if (empty($result)) {
             $result = [];
             echo "<tr><td colspan='8' class='text-center'>Data '$keyword' tidak ditemukan</td></tr>";
@@ -87,20 +86,19 @@ else {
 	?>
             <tr>
                 <td><?php echo $nourut++; ?></td>
-                <td><img style="width:75px; height:75px; object-fit:cover;  border-radius:50%;"
-                        src="img/<?php if (empty($x['foto'])) { echo "user-default.png"; } else { echo $x['foto']; } ?>">
-                </td>
-                <td><?php echo $x['nis']; ?></td>
+                <td><?php echo $x['nipd']; ?></td>
                 <td><?php echo $x['nama_lengkap']; ?></td>
-                <td><?php echo $x['tgl_lahir']; ?></td>
+                <!-- show tanggal lahir with format d-m-Y -->
+                <td><?php echo date('d-m-Y', strtotime($x['tgl_lahir'])); ?></td>
                 <td><?php echo $x['jenis_kelamin']; ?></td>
                 <td><?php echo $x['alamat']; ?></td>
                 <td><?php echo $x['tahun_lulus']; ?></td>
-                <td width="18%" class="content-space-between">
+                <td width="25%" class="content-space-between">
+                    <?php include "alumni/modal_detailalumni.php"; ?>
+                    <span> </span>
                     <a class="btn btn-sm btn-warning"
                         href="?p=data-alumni-edit&id=<?php echo $x['id_siswa']; ?>&aksi=edit"><i
                             class="bi bi-pencil-square"></i> Edit</a>
-
                     <span> </span>
                     <!-- create delete button with alert -->
                     <a class="btn btn-sm btn-danger"

@@ -42,10 +42,9 @@ else {
         <table class="table table-sm text-center table-striped table-bordered align-middle">
             <tr class="table-success">
                 <th>No</th>
-                <th>Foto</th>
-                <th>NIP</th>
+                <th>NUPTK</th>
                 <th>Nama Lengkap</th>
-                <th>Tanggal Lahir</th>
+                <th>Jenis Kelamin</th>
                 <th>Alamat</th>
                 <th>Mata Pelajaran</th>
                 <th>Opsi</th>
@@ -66,7 +65,7 @@ else {
     /* This is a search function. */
     if (isset($_POST['cari'])) {
         $keyword = $_POST['keyword'];
-        $result = $db->select_data("select * from guru where nama_lengkap like '%$keyword%' or nip like '%$keyword%'");
+        $result = $db->select_data("select * from guru where nama_lengkap like '%$keyword%' or nuptk like '%$keyword%'");
         if (empty($result)) {
             $result = [];
             echo "<tr><td colspan='8' class='text-center'>Data '$keyword' tidak ditemukan</td></tr>";
@@ -86,15 +85,19 @@ else {
 	?>
             <tr>
                 <td><?php echo $nourut++; ?></td>
-                <td><img style="width:75px; height:75px; object-fit:cover;  border-radius:50%;"
-                        src="img/<?php if (empty($x['foto'])) { echo "user-default.png"; } else { echo $x['foto']; } ?>">
-                </td>
-                <td><?php echo $x['nip']; ?></td>
+                <td><?php echo $x['nuptk']; ?></td>
                 <td><?php echo $x['nama_lengkap']; ?></td>
-                <td><?php echo $x['tgl_lahir']; ?></td>
+                <td><?php $jk = $x['jenis_kelamin']; 
+                if ($jk == 'L') {
+                    echo "Laki-laki";
+                } else {
+                    echo "Perempuan";
+                }?></td>
                 <td><?php echo $x['alamat']; ?></td>
                 <td><?php echo $x['mata_pelajaran']; ?></td>
-                <td width="18%" class="content-space-between">
+                <td width="22%" class="content-space-between">
+                    <?php include 'guru/modal_detailguru.php'?>
+                    <span> </span>
                     <a class="btn btn-sm btn-warning"
                         href="?p=data-guru-edit&id=<?php echo $x['id_guru']; ?>&aksi=edit"><i
                             class="bi bi-pencil-square"></i> Edit</a>

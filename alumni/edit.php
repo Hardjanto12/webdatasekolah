@@ -23,14 +23,9 @@
     <form action="alumni/proses.php?aksi=update" method="post" enctype="multipart/form-data">
         <?php foreach($db->getdata_edit($_GET['id']) as $x): ?>
         <input type="hidden" name="id" value="<?php echo $x['id_siswa']; ?>">
-        <input type="hidden" name="gambarlama" value="<?php echo $x['foto']; ?>">
-        <div class="text-center">
-            <img src="img/<?php echo $x['foto']; ?>"
-                style="width: 150px; height:150px; object-fit:cover;  border-radius:50%;">
-        </div>
         <div class="form-group">
-            <label>NIS</label>
-            <input type="text" name="nis" class="form-control" value="<?php echo $x['nis']; ?>">
+            <label>NIPD</label>
+            <input type="text" name="nipd" class="form-control" value="<?php echo $x['nipd']; ?>">
         </div>
 
         <div class="form-group">
@@ -75,12 +70,6 @@
         <div class="form-group">
             <label>No Telp</label>
             <input type="text" name="notelp" class="form-control" value="<?php echo $x['notelp']; ?>">
-        </div>
-        <!-- form to save picture into img folder -->
-        <div class="form-group">
-            <label>Update Foto</label>
-            <br>
-            <input type="file" name="foto" class="form-control">
         </div>
 
         <div class="form-group">
