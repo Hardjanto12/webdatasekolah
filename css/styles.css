@@ -14,6 +14,7 @@ b {
   padding: 8px 70px;
   font-size: 20px;
 }
+
 .btn-primary:hover {
   color: whitesmoke;
   border-radius: 28px;
@@ -36,6 +37,7 @@ b {
 label {
   font-weight: bold;
 }
+
 .nav-link {
   color: white;
 }
@@ -43,13 +45,16 @@ label {
 .nav-link:hover {
   color: #fcb920;
 }
+
 .navbar-brand {
   color: #fff;
 }
+
 .navbar-brand:hover {
   color: #fcb920;
   transition: 500ms color;
 }
+
 .navbar-collapse {
   color: white;
 }

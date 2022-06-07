@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jun 04, 2022 at 03:27 PM
+-- Generation Time: Jun 04, 2022 at 04:15 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -45,7 +45,8 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `privilege`, `created_a
 (35, '33333333', '$2y$10$GGN1NEV1GW5yJCe1SS5moekBzYan2PDAwgK/vpxrKhI7Qo5CmC0nm', 'guru', '2022-06-03 22:39:33'),
 (36, '8888899999', '$2y$10$NB0EciCVL.4ga0WTGmEieu22FuaR8w6ogls9SZUby89qN765.YU9a', 'guru', '2022-06-03 23:05:27'),
 (37, '2137743644200053', '$2y$10$3Lyo/EnpywUxZziXsEXFVOQkgGs3E7d8qT3rV.ljT4Nxy2DSJ0xo6', 'guru', '2022-06-04 10:29:12'),
-(38, '12345678972381923', '$2y$10$zRPx8ClUF0IxQVn91legWuzRpv2uj3dYS55UBhHS1F.usKGJ1apZq', 'guru', '2022-06-04 10:33:28');
+(38, '12345678972381923', '$2y$10$zRPx8ClUF0IxQVn91legWuzRpv2uj3dYS55UBhHS1F.usKGJ1apZq', 'guru', '2022-06-04 10:33:28'),
+(39, '789456123', '$2y$10$tovknLZEW3z2vVTtzJwU8eyfMr0UIblLSTRFGaEqGO9SKrVf/UE5i', 'guru', '2022-06-04 20:58:27');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,8 @@ INSERT INTO `guru` (`id_guru`, `nuptk`, `nama_lengkap`, `tempat_lahir`, `tgl_lah
 (17, '111222333', 'Lisa', 'Bangkok', '1997-03-02', 'P', 'Seoul', '08377728837', 'Kimia', '2022-06-03 15:14:44'),
 (18, '333333333', 'Jisoo', 'Seoul', '1996-03-08', 'P', 'Seoul', '08372876272', 'Fisika', '2022-06-03 22:39:33'),
 (19, '8888899999', 'Jennie', 'Seoul', '1997-02-08', 'P', 'Seoul', '083777388826', 'Matematika', '2022-06-03 23:05:26'),
-(24, '2137743644200053', 'Budi Suharso', 'Surabaya', '1965-08-05', 'L', 'Surabaya', '084923829829', 'Kimia', '2022-06-04 10:58:23');
+(24, '2137743644200053', 'Budi Suharso', 'Surabaya', '1965-08-05', 'L', 'Surabaya', '084923829829', 'Kimia', '2022-06-04 10:58:23'),
+(25, '789456123', 'Windha Hardjanto', 'Tulungagung', '2000-08-12', 'L', 'Tulungagung', '085850080390', 'Kimia', '2022-06-04 20:58:26');
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,6 @@ CREATE TABLE `siswa` (
   `nama_ayah` varchar(100) NOT NULL,
   `nama_ibu` varchar(100) NOT NULL,
   `notelp` varchar(25) DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL,
   `tahun_lulus` year(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -102,14 +103,15 @@ CREATE TABLE `siswa` (
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`id_siswa`, `nipd`, `nama_lengkap`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `nama_ayah`, `nama_ibu`, `notelp`, `foto`, `tahun_lulus`) VALUES
-(76, '1111122222', 'Glen Quagmire', 'Quahog', '1993-03-03', 'L', 'Quahog', 'Ronny Quagmire', ' Martha Quagmire', '083784788828', '629a2f985c346.jpg', 2003),
-(77, '3333322222', 'Joe', 'Quahog', '1996-08-02', 'L', 'Quahog', 'Mike ', 'Christina', '083772877738', '629a2fd864da2.jpg', 2003),
-(78, '8888899999', 'Lois Griffin', 'Quahog', '1995-08-03', 'P', 'Quahog', 'Pewterschmidt', 'Polly', '083888389929', '629a30158e09a.png', 2003),
-(79, '6666373732', 'Peter Griffin', 'Quahog', '1996-08-11', 'L', 'Quahog', 'Hugo Griffin', 'Sophie Griffin', '083777283412', '629a304dd8b57.jpg', 2003),
-(80, '1111155566', 'Stewie Griffin', 'Quahog', '2000-03-08', 'L', 'Quahog', 'Peter Griffin', 'Lois Griffin', '083777366628', '629a3088aa551.png', 0000),
-(81, '7898766367', 'Chris Griffin', 'Quahog', '2000-01-12', 'L', 'Quahog', 'Peter Griffin', 'Lois Griffin', '0838782631768', '629a30ad0cbba.jpg', 0000),
-(82, '1234445556', 'Megatron Griffin', 'Quahog', '2000-03-09', 'P', 'Quahog', 'Peter Griffin', 'Lois Griffin', '083788727738', '629a31011e9f2.jpg', 0000);
+INSERT INTO `siswa` (`id_siswa`, `nipd`, `nama_lengkap`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `nama_ayah`, `nama_ibu`, `notelp`, `tahun_lulus`) VALUES
+(76, '1111122222', 'Glen Quagmire', 'Quahog', '1993-03-03', 'L', 'Quahog', 'Ronny Quagmire', ' Martha Quagmire', '083784788828', 2003),
+(77, '3333322222', 'Joe', 'Quahog', '1996-08-02', 'L', 'Quahog', 'Mike ', 'Christina', '083772877738', 2003),
+(78, '8888899999', 'Lois Griffin', 'Quahog', '1995-08-03', 'P', 'Quahog', 'Pewterschmidt', 'Polly', '083888389929', 2003),
+(79, '6666373732', 'Peter Griffin', 'Quahog', '1996-08-11', 'L', 'Quahog', 'Hugo Griffin', 'Sophie Griffin', '083777283412', 2003),
+(80, '1111155566', 'Stewie Griffin', 'Quahog', '2000-03-08', 'L', 'Quahog', 'Peter Griffin', 'Lois Griffin', '083777366628', 0000),
+(81, '7898766367', 'Chris Griffin', 'Quahog', '2000-01-12', 'L', 'Quahog', 'Peter Griffin', 'Lois Griffin', '0838782631768', 0000),
+(82, '1234445556', 'Megatron Griffin', 'Quahog', '2000-03-09', 'P', 'Quahog', 'Peter Griffin', 'Lois Griffin', '083788727738', 0000),
+(85, '1234567891233423', 'Windha Hardjanto', 'Tulungagung', '2000-08-04', 'L', 'Jakarta', 'Edi', 'Juwar', '082312831928', 0000);
 
 --
 -- Indexes for dumped tables
@@ -141,19 +143,19 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_admin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

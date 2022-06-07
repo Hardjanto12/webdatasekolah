@@ -1,19 +1,20 @@
 <?php 
-include 'database.php';
+include '../database.php';
 $db = new database();
-$cek = $db->select_data("SELECT * FROM siswa where tahun_lulus <> '0000'");
+$cek = $db->select_data("SELECT * FROM guru");
 if (empty($cek)) {
     $disabled = "disabled";
 }
 else {
     $disabled = '';
 }
+
 ?>
 
 <div class="container-fluid ps-4 pt-3 pe-4 align-top">
 
     <div class="row">
-        <h3 class="display-5">Data Alumni</h3>
+        <h3 class="display-5">Data Guru</h3>
     </div>
 
     <div class="row mb-3 justify-space-between">
@@ -21,7 +22,7 @@ else {
             <!-- create form search data siswa -->
             <form action="" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Cari data alumni" name="keyword">
+                    <input type="text" class="form-control" placeholder="Cari data siswa" name="keyword">
                     <div class="input-group-append ms-2">
                         <button class="btn btn-primary" type="submit" name="cari" <?= $disabled?>>Cari</button>
                     </div>
@@ -29,9 +30,6 @@ else {
             </form>
         </div>
         <div class="col-4"></div>
-        <div class="col-4 text-end">
-            <?php include "alumni/modal_addalumni.php"; ?>
-        </div>
     </div>
 
 
@@ -41,17 +39,17 @@ else {
         <table class="table table-sm text-center table-striped table-bordered align-middle">
             <tr class="table-success">
                 <th>No</th>
-                <th>NIPD</th>
+                <th>NUPTK</th>
                 <th>Nama Lengkap</th>
-                <th>Tanggal Lahir</th>
                 <th>Jenis Kelamin</th>
                 <th>Alamat</th>
-                <th>Tahun Lulus</th>
+                <th>Mata Pelajaran</th>
                 <th>Opsi</th>
             </tr>
             <?php
-    /* This is the code for pagination. */
-    $result = $db->select_data("select * from siswa where tahun_lulus <> '0000'");
+    
+    /* It's a pagination function. */
+    $result = $db->select_data("select * from guru");
     if (empty($result)) {
         $result = [];
     }
@@ -63,54 +61,68 @@ else {
     $num = 1;
     $nourut = $num + $awal;
     $no = $awal + 1;
-    /* It's checking if the result is empty, if it is, it will set the result to an empty array and
-    echo a message. */ 
+
+    /* It's a function to check if the data is empty or not. If the data is empty, it will show the
+    message "Data masih kosong". */
     if (!empty($result)) {
-        $result = $db->select_data("select * from siswa where tahun_lulus <> '0000' limit $awal, $limit");
+        $result = $db->select_data("select * from guru limit $awal, $limit");
     } else {
         $result = [];
         echo "<tr><td colspan='8' class='text-center'>Data masih kosong</td></tr>";
     }
 
-
-    /* This is the code for searching data. */
+    /* This is a search function. */
     if (isset($_POST['cari'])) {
         $keyword = $_POST['keyword'];
-        $result = $db->select_data("select * from siswa where nama_lengkap like '%$keyword%' or nipd like '%$keyword%' AND tahun_lulus <> '0000'");
+        $result = $db->select_data("select * from guru where nama_lengkap like '%$keyword%' or nuptk like '%$keyword%'");
         if (empty($result)) {
             $result = [];
             echo "<tr><td colspan='8' class='text-center'>Data '$keyword' tidak ditemukan</td></tr>";
             die;
         }
         if (empty($keyword)) {
-            $result = $db->select_data("select * from siswa where tahun_lulus <> '0000' limit $awal, $limit");
+            $result = $db->select_data("select * from guru limit $awal, $limit");   
         }
-    }
+    }  
 
     
-	foreach($result as $x):
+    foreach($result as $x):    
 	?>
             <tr>
                 <td><?php echo $nourut++; ?></td>
-                <td><?php echo $x['nipd']; ?></td>
+                <td><?php echo $x['nuptk']; ?></td>
                 <td><?php echo $x['nama_lengkap']; ?></td>
-                <!-- show tanggal lahir with format d-m-Y -->
-                <td><?php echo date('d-m-Y', strtotime($x['tgl_lahir'])); ?></td>
-                <td><?php echo $x['jenis_kelamin']; ?></td>
+                <td><?php $jk = $x['jenis_kelamin']; 
+                if ($jk == 'L') {
+                    echo "Laki-laki";
+                } else {
+                    echo "Perempuan";
+                }?></td>
                 <td><?php echo $x['alamat']; ?></td>
-                <td><?php echo $x['tahun_lulus']; ?></td>
-                <td width="25%" class="content-space-between">
-                    <?php include "alumni/modal_detailalumni.php"; ?>
+                <td><?php echo $x['mata_pelajaran']; ?></td>
+                <td width="10%" class="content-space-between">
+                    <!-- button -->
+                    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#detail"
+                        data-idguru="<?=$x['id_guru']?>"><i class="bi bi-info-circle" aria-hidden="true">
+                            Detail</i>
+                    </button>
+
+                    <!-- Modal Add Data Guru-->
+                    <div class="modal fade " id="detail" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" id="details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <span> </span>
-                    <a class="btn btn-sm btn-warning"
-                        href="?p=data-alumni-edit&id=<?php echo $x['id_siswa']; ?>&aksi=edit"><i
-                            class="bi bi-pencil-square"></i> Edit</a>
-                    <span> </span>
-                    <!-- create delete button with alert -->
-                    <a class="btn btn-sm btn-danger"
-                        href="alumni/proses.php?id=<?php echo $x['id_siswa']; ?>&aksi=hapus"
-                        onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="bi bi-trash"></i>
-                        Delete</a>
                 </td>
             </tr>
             <?php 
@@ -129,19 +141,19 @@ else {
                     <!-- create previous pagination button-->
                     <?php if ($halaman_aktif > 1) : ?>
                     <li class="page-item"><a class="page-link"
-                            href="?p=data-alumni&halaman=<?php echo $halaman_aktif - 1; ?>">Previous</a></li>
+                            href="?p=data-guru&halaman=<?php echo $halaman_aktif - 1; ?>">Previous</a></li>
                     </li>
                     <?php endif; ?>
                     <!-- create pagination button -->
                     <?php for ($i = 1; $i <= $jumlah_halaman; $i++) : ?>
                     <li class="page-item <?php if ($halaman_aktif == $i) { echo "active"; } ?>">
-                        <a class="page-link" href="?p=data-alumni&halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        <a class="page-link" href="?p=data-guru&halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
                     </li>
                     <?php endfor; ?>
                     <!-- create next pagination button -->
                     <?php if ($halaman_aktif < $jumlah_halaman) : ?>
                     <li class="page-item">
-                        <a class="page-link" href="?p=data-alumni&halaman=<?php echo $halaman_aktif + 1; ?>"
+                        <a class="page-link" href="?p=data-guru&halaman=<?php echo $halaman_aktif + 1; ?>"
                             aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>
@@ -182,4 +194,27 @@ function scrollToTop() {
 scrollToTopBtn.addEventListener("click", scrollToTop);
 let observer = new IntersectionObserver(callback);
 observer.observe(target);
+</script>
+
+<!-- jquery cdn -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<!-- when button clicked, show alert 'button clicked' -->
+<script>
+$(document).ready(function() {
+    $('#detail').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var idguru = button.data('idguru') // Extract info from data-* attributes
+        var modal = $(this)
+        $.ajax({
+            url: '../guru/load-detail.php',
+            type: 'POST',
+            data: 'idguru=' + idguru,
+            success: function(data) {
+                modal.find('.modal-body').html(data)
+            }
+        })
+    })
+})
 </script>

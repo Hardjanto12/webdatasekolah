@@ -1,5 +1,6 @@
-<?php 
+<?php
 include 'database.php';
+
 $db = new database();
 ?>
 <!doctype html>
@@ -34,6 +35,20 @@ $db = new database();
                 </div>
                 <div class="collapse navbar-collapse" id="navs">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Data
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="data/data.php?p=data-siswa">Siswa</a></li>
+                                <li><a class="dropdown-item" href="data/data.php?p=data-alumni">Alumni</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="data/data.php?p=data-guru">Guru</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#about">About</a>
                         </li>

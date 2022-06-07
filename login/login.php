@@ -1,6 +1,9 @@
-<?php 
-include 'authentication.php';
+<?php
 
+include 'authentication.php';
+$hashpwd = new authentication();
+
+$hashpwd->hash();
 ?>
 
 <head>
@@ -62,12 +65,12 @@ include 'authentication.php';
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <?php 
-                       if(isset($_POST['login'])){
-                        $login = new authentication();
-                        $login->auth($_POST['username'], $_POST['password']);
-                    }
-                            ?>
+                            <?php
+if (isset($_POST['login'])) {
+    $login = new authentication();
+    $login->auth($_POST['username'], $_POST['password']);
+}
+?>
                         </div>
                         <form method="post">
                             <div class="mb-3">

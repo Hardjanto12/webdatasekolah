@@ -1,40 +1,46 @@
-<?php 
+<?php
+
 include '../database.php';
 
-class authentication{    
-    
-    function register($username, $password, $confirmpassword){
+class authentication
+{
+
+
+    function register($username, $password, $confirmpassword)
+    {
         $register = new database();
-        
-            if ($password = $confirmpassword) {
-                $hash = password_hash($password, PASSWORD_DEFAULT);
-                // check duplicate
-                $query = "SELECT * FROM admin WHERE username = '$username'";
-                $result = mysqli_query($register->conn, $query);
-                $count = mysqli_num_rows($result);
-                if ($count > 0) {
-                    echo "Username sudah ada";
-                    return false;
-                }
-                else{
-                    $query = "INSERT INTO admin (username, password) VALUES ('$username', '$hash')";
-                    mysqli_query($register->conn, $query);
-                    echo "<script>alert('Register berhasil');</script>";
-                    return true;
-                }
-            } else {
-                echo 'Password tidak sama';
+
+        if ($password = $confirmpassword) {
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            // check duplicate
+            $query = "SELECT * FROM admin WHERE username = '$username'";
+            $result = mysqli_query($register->conn, $query);
+            $count = mysqli_num_rows($result);
+            if ($count > 0) {
+                echo "Username sudah ada";
+                return false;
             }
+            else {
+                $query = "INSERT INTO admin (username, password) VALUES ('$username', '$hash')";
+                mysqli_query($register->conn, $query);
+                echo "<script>alert('Register berhasil');</script>";
+                return true;
+            }
+        }
+        else {
+            echo 'Password tidak sama';
+        }
 
     }
 
-    public function auth($username, $password){
+    public function auth($username, $password)
+    {
         $db = new database();
         $query = "SELECT * FROM admin WHERE username = '$username'";
         $result = mysqli_query($db->conn, $query);
         $data = mysqli_fetch_array($result);
         $count = mysqli_num_rows($result);
-        
+
 
         if ($count > 0) {
             if (password_verify($password, $data['password'])) {
@@ -42,7 +48,8 @@ class authentication{
                 $_SESSION['username'] = $username;
                 $_SESSION['id_admin'] = $data['id_admin'];
                 header("location:../admin.php?p=home");
-            } else {
+            }
+            else {
                 echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
                 <i class="bi bi-exclamation-triangle-fill"></i>
                 <div>
@@ -50,7 +57,8 @@ class authentication{
                 </div>
               </div>';
             }
-        } else {
+        }
+        else {
             echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
             <i class="bi bi-exclamation-triangle-fill"></i>
             <div>
@@ -60,7 +68,8 @@ class authentication{
         }
     }
 
-    function change_password($username, $password, $confirmpassword){
+    function change_password($username, $password, $confirmpassword)
+    {
         $changepass = new database();
         if ($password = $confirmpassword) {
             $hash = password_hash($password, PASSWORD_DEFAULT);
@@ -68,10 +77,47 @@ class authentication{
             mysqli_query($changepass->conn, $query);
             echo "<script>alert('Password berhasil diubah');</script>";
             return true;
-        } else {
+        }
+        else {
             echo 'Password tidak sama';
         }
     }
 
-}  
+    function hash()
+    {
+        $cekpass = new database();
+
+        $check = $cekpass->select_data("select * from admin where username = password");
+
+        if ($check > 0) {
+            foreach ($check as $p):
+                if ($check > 0) {
+                    // hash the password
+                    $hash = password_hash($p['password'], PASSWORD_DEFAULT);
+                    // update the password
+                    $query = "update admin set password = '$hash' where username = '$p[username]'";
+                    mysqli_query($cekpass->conn, $query);
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            endforeach;
+        }
+
+
+
+
+
+
+
+
+
+
+    
+}
+
+
+}
+
 ?>

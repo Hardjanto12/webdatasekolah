@@ -1,17 +1,13 @@
 <!-- page to change password -->
-<?php 
-    include 'database.php';
-    $db = new database();
-    $id = $_SESSION['id_admin'];
-    $username = $_SESSION['username'];
-    $query = "SELECT * FROM admin WHERE id_admin = '$id'";
-    $result = mysqli_query($db->conn, $query);
-    $row = mysqli_fetch_assoc($result);
+<?php
+include 'database.php';
+$db = new database();
+$id = $_SESSION['id_admin'];
+$username = $_SESSION['username'];
+$query = "SELECT * FROM admin WHERE id_admin = '$id'";
+$result = mysqli_query($db->conn, $query);
+$row = mysqli_fetch_assoc($result);
 
-    if (isset($_POST['submit'])) {
-       $gantipassword = new authentication();
-       $gantipassword->change_password($id ,$_POST['password'], $_POST['confirmpassword']);
-    }
 ?>
 
 <!-- bootstrap form ganti password -->

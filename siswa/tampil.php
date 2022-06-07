@@ -50,7 +50,6 @@ else {
                 <th>Opsi</th>
             </tr>
             <?php
-    $nourut = 1;
     /* It's a pagination function. */
     $result = $db->select_data("select * from siswa where tahun_lulus = '0000'");
     if (empty($result)) {
@@ -61,17 +60,9 @@ else {
     $jumlah_halaman = ceil($jumlah_data / $limit);
     $halaman_aktif = (isset($_GET['halaman'])) ? $_GET['halaman'] : 1;
     $awal = ($halaman_aktif - 1) * $limit;
+    $num = 1;
+    $nourut = $num + $awal;
     $no = $awal + 1;
-    /* This is a search function. */
-    if (isset($_POST['cari'])) {
-        $keyword = $_POST['keyword'];
-        $result = $db->select_data("select * from siswa where nama_lengkap like '%$keyword%' or nipd like '%$keyword%' AND tahun_lulus = '0000'");
-        if (empty($result)) {
-            $result = [];
-            echo "<tr><td colspan='8' class='text-center'>Data '$keyword' tidak ditemukan</td></tr>";
-            die;
-        }
-    }  
 
     /* It's a function to check if the data is empty or not. If the data is empty, it will show the
     message "Data masih kosong". */
@@ -81,6 +72,22 @@ else {
         $result = [];
         echo "<tr><td colspan='8' class='text-center'>Data masih kosong</td></tr>";
     }
+
+    /* This is a search function. */
+    if (isset($_POST['cari'])) {
+        $keyword = $_POST['keyword'];
+        $result = $db->select_data("select * from siswa where nama_lengkap like '%$keyword%' or nipd like '%$keyword%' AND tahun_lulus = '0000'");
+        if (empty($result)) {
+            $result = [];
+            echo "<tr><td colspan='8' class='text-center'>Data '$keyword' tidak ditemukan</td></tr>";
+            die;
+        }
+        if (empty($keyword)){
+            $result = $db->select_data("select * from siswa where tahun_lulus = '0000' limit $awal, $limit");
+        }
+    }  
+
+    
     foreach($result as $x):    
 	?>
             <tr>
